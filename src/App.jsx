@@ -6,6 +6,8 @@ const C = {
   green: "#7adf8a", greenDark: "#0f1f18", greenBorder: "#2a4a3a",
 };
 
+const API = "https://fitness-backend-production-35ef.up.railway.app";
+
 const PLAN = [
   {
     id: "d1", day: "Day 1", schedule: "Monday",
@@ -52,7 +54,7 @@ const PLAN = [
 const CARDIO_OPTIONS = ["Swim", "Treadmill", "Stair Master", "Elliptical", "Walking"];
 
 const ACTIVITY_TYPES = [
-  { label: "Walking", emoji: "🚶‍♀️" }, { label: "Running", emoji: "🏃" },
+  { label: "Walking", emoji: "🚶‍♀️" }, { label: "Running", emoji: "🏃‍♀️" },
   { label: "Swimming", emoji: "🏊‍♀️" }, { label: "Cycling", emoji: "🚴‍♀️" },
   { label: "Jump Rope", emoji: "🪢" }, { label: "Yoga", emoji: "🧘‍♀️" }, { label: "Other", emoji: "⚡" },
 ];
@@ -102,13 +104,33 @@ const DRAFT_KEY = "workout-draft";
 const MEAL_LOG_KEY = "meal-log";
 const emptyCardio = () => ({ type: "Treadmill", time: "", distance: "", incline: "", speed: "" });
 
-function loadLocal(key, fallback) {
-  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
-}
-function saveLocal(key, val) {
-  try { localStorage.setItem(key, JSON.stringify(val)); } catch {}
+// ── API HELPERS ───────────────────────────────────────────────────────
+async function loadFromServer(key, fallback) {
+  try {
+    const res = await fetch(`${API}/data`);
+    const data = await res.json();
+    if (key === "fitness-entries") return data.entries || fallback;
+    if (key === MEAL_LOG_KEY) return data.mealLog || fallback;
+    if (key === "plan-checked") return data.planChecked || fallback;
+    if (key === DRAFT_KEY) return data.workoutDraft || fallback;
+    return fallback;
+  } catch { return fallback; }
 }
 
+async function saveToServer(key, val) {
+  try {
+    const map = {
+      "fitness-entries": ["/entries", { entries: val }],
+      [MEAL_LOG_KEY]: ["/meallog", { mealLog: val }],
+      "plan-checked": ["/planchecked", { planChecked: val }],
+      [DRAFT_KEY]: ["/draft", { draft: val }],
+    };
+    const [path, body] = map[key] || [];
+    if (path) await fetch(`${API}${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  } catch {}
+}
+
+// ── UI PRIMITIVES ─────────────────────────────────────────────────────
 function TabBar({ tabs, active, onSelect }) {
   return (
     <div style={{ display: "flex", background: C.dark, borderBottom: `1px solid ${C.border}`, overflowX: "auto" }}>
@@ -133,7 +155,8 @@ function Btn({ children, onClick, variant = "primary", style = {}, disabled = fa
   const col = variant === "ghost" ? C.rose : C.blush;
   return (
     <button onClick={onClick} disabled={disabled} style={{
-      background: bg, borderRadius: 100, padding: "9px 18px", border: variant === "ghost" ? `1px solid ${C.rose}` : "none",
+      background: bg, borderRadius: 100, padding: "9px 18px",
+      border: variant === "ghost" ? `1px solid ${C.rose}` : "none",
       color: col, fontWeight: 600, fontSize: 13, cursor: disabled ? "default" : "pointer",
       opacity: disabled ? 0.4 : 1, fontFamily: "inherit", ...style,
     }}>{children}</button>
@@ -148,10 +171,11 @@ function CardioSection({ cardio, onChange }) {
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
         {CARDIO_OPTIONS.map(opt => (
           <button key={opt} onClick={() => onChange({ ...cardio, type: opt })} style={{
-            padding: "7px 14px", borderRadius: 100, border: `1px solid ${cardio.type === opt ? C.green : C.greenBorder}`,
+            padding: "7px 14px", borderRadius: 100,
+            border: `1px solid ${cardio.type === opt ? C.green : C.greenBorder}`,
             background: cardio.type === opt ? "#1a3a28" : "transparent",
-            color: cardio.type === opt ? C.green : "#4a7a5a", fontSize: 13, fontWeight: 600,
-            cursor: "pointer", fontFamily: "inherit",
+            color: cardio.type === opt ? C.green : "#4a7a5a",
+            fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
           }}>{opt}</button>
         ))}
       </div>
@@ -183,38 +207,46 @@ function CardioSection({ cardio, onChange }) {
   );
 }
 
+// ── PLAN & LOG ────────────────────────────────────────────────────────
 function PlanWorkoutTab({ onSave }) {
   const [openDay, setOpenDay] = useState(null);
-  const [checked, setChecked] = useState(() => loadLocal("plan-checked", {}));
+  const [checked, setChecked] = useState({});
   const [loggingDay, setLoggingDay] = useState(null);
   const [draft, setDraft] = useState({});
   const [cardio, setCardio] = useState(emptyCardio());
   const [notes, setNotes] = useState("");
   const [saved, setSaved] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const d = loadLocal(DRAFT_KEY, null);
-    if (d) {
-      setDraft(d.sets || {}); setNotes(d.notes || "");
-      setCardio(d.cardio || emptyCardio());
-      if (d.dayId) setLoggingDay(d.dayId);
-    }
+    Promise.all([
+      loadFromServer("plan-checked", {}),
+      loadFromServer(DRAFT_KEY, null),
+    ]).then(([ch, dr]) => {
+      setChecked(ch);
+      if (dr) {
+        setDraft(dr.sets || {}); setNotes(dr.notes || "");
+        setCardio(dr.cardio || emptyCardio());
+        if (dr.dayId) setLoggingDay(dr.dayId);
+      }
+      setLoading(false);
+    });
   }, []);
 
   function persist(dayId, sets, c, n) {
-    saveLocal(DRAFT_KEY, { dayId, sets, cardio: c, notes: n });
+    saveToServer(DRAFT_KEY, { dayId, sets, cardio: c, notes: n });
   }
 
   function toggleCheck(dayId, exId) {
     const key = `${dayId}-${exId}`;
     const u = { ...checked, [key]: !checked[key] };
-    setChecked(u); saveLocal("plan-checked", u);
+    setChecked(u); saveToServer("plan-checked", u);
   }
 
   function resetDay(dayId) {
     const u = { ...checked };
     Object.keys(u).forEach(k => { if (k.startsWith(dayId)) delete u[k]; });
-    setChecked(u); saveLocal("plan-checked", u);
+    setChecked(u); saveToServer("plan-checked", u);
   }
 
   function startLogging(day) {
@@ -246,16 +278,18 @@ function PlanWorkoutTab({ onSave }) {
   function handleSave() {
     const day = PLAN.find(d => d.id === loggingDay);
     onSave({ id: Date.now(), type: "workout", date: today(), day: day.title, emoji: day.emoji, color: day.color, sets: draft, cardio, notes });
-    saveLocal(DRAFT_KEY, null); localStorage.removeItem(DRAFT_KEY);
+    saveToServer(DRAFT_KEY, null);
     setLoggingDay(null); setDraft({}); setCardio(emptyCardio()); setNotes(""); setSaved(true);
   }
 
   function clearDraft() {
-    localStorage.removeItem(DRAFT_KEY);
+    saveToServer(DRAFT_KEY, null);
     setLoggingDay(null); setDraft({}); setCardio(emptyCardio()); setNotes("");
   }
 
   const activeDay = loggingDay ? PLAN.find(d => d.id === loggingDay) : null;
+
+  if (loading) return <div style={{ textAlign: "center", padding: 40, color: C.muted }}>Loading... ⏳</div>;
 
   if (saved) return (
     <div style={{ textAlign: "center", padding: "48px 24px" }}>
@@ -389,26 +423,31 @@ function PlanWorkoutTab({ onSave }) {
   );
 }
 
+// ── MEALS ─────────────────────────────────────────────────────────────
 function MealsTab() {
   const dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
   const defaultIdx = Math.max(0, dayNames.indexOf(todayDayName()));
   const [selectedDay, setSelectedDay] = useState(defaultIdx);
-  const [mealLog, setMealLog] = useState(() => loadLocal(MEAL_LOG_KEY, {}));
+  const [mealLog, setMealLog] = useState({});
   const [editingMeal, setEditingMeal] = useState(null);
   const [noteText, setNoteText] = useState("");
+
+  useEffect(() => {
+    loadFromServer(MEAL_LOG_KEY, {}).then(v => setMealLog(v));
+  }, []);
 
   function toggleMeal(dayIdx, mealIdx) {
     const key = `${dayIdx}-${mealIdx}`;
     const existing = mealLog[key] || {};
     const updated = { ...mealLog, [key]: { ...existing, eaten: !existing.eaten } };
-    setMealLog(updated); saveLocal(MEAL_LOG_KEY, updated);
+    setMealLog(updated); saveToServer(MEAL_LOG_KEY, updated);
   }
 
   function saveNote(dayIdx, mealIdx) {
     const key = `${dayIdx}-${mealIdx}`;
     const existing = mealLog[key] || {};
     const updated = { ...mealLog, [key]: { ...existing, note: noteText } };
-    setMealLog(updated); saveLocal(MEAL_LOG_KEY, updated);
+    setMealLog(updated); saveToServer(MEAL_LOG_KEY, updated);
     setEditingMeal(null); setNoteText("");
   }
 
@@ -438,8 +477,10 @@ function MealsTab() {
       <div style={{ display: "flex", gap: 8, overflowX: "auto", marginBottom: 14, paddingBottom: 4 }}>
         {dayNames.map((d, i) => (
           <button key={d} onClick={() => setSelectedDay(i)} style={{
-            flexShrink: 0, padding: "7px 14px", borderRadius: 100, border: `1px solid ${selectedDay === i ? C.rose : C.border}`,
-            background: selectedDay === i ? "#2e1f22" : "transparent", color: selectedDay === i ? C.blush : C.muted,
+            flexShrink: 0, padding: "7px 14px", borderRadius: 100,
+            border: `1px solid ${selectedDay === i ? C.rose : C.border}`,
+            background: selectedDay === i ? "#2e1f22" : "transparent",
+            color: selectedDay === i ? C.blush : C.muted,
             fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
           }}>{d.slice(0,3)}{i === defaultIdx ? " 📍" : ""}</button>
         ))}
@@ -519,6 +560,7 @@ function MealsTab() {
   );
 }
 
+// ── ACTIVITY ──────────────────────────────────────────────────────────
 function LogActivity({ onSave }) {
   const [type, setType] = useState("Walking");
   const [duration, setDuration] = useState("");
@@ -574,6 +616,7 @@ function LogActivity({ onSave }) {
   );
 }
 
+// ── HISTORY ───────────────────────────────────────────────────────────
 function History({ entries, onDelete, onUpdate }) {
   const [editingEntry, setEditingEntry] = useState(null);
   const [editDraft, setEditDraft] = useState({});
@@ -598,7 +641,6 @@ function History({ entries, onDelete, onUpdate }) {
   function removeEditSet(ex, i) {
     setEditDraft(prev => ({ ...prev, [ex]: prev[ex].filter((_, idx) => idx !== i) }));
   }
-
   function saveEdit() {
     onUpdate({ ...editingEntry, sets: editDraft, cardio: editCardio, notes: editNotes });
     setEditingEntry(null);
@@ -702,23 +744,32 @@ function History({ entries, onDelete, onUpdate }) {
   );
 }
 
+// ── ROOT ──────────────────────────────────────────────────────────────
 export default function App() {
   const [tab, setTab] = useState("plan");
-  const [entries, setEntries] = useState(() => loadLocal("fitness-entries", []));
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadFromServer("fitness-entries", []).then(v => {
+      setEntries(v);
+      setLoading(false);
+    });
+  }, []);
 
   function addEntry(entry) {
     const updated = [...entries, entry];
-    setEntries(updated); saveLocal("fitness-entries", updated);
+    setEntries(updated); saveToServer("fitness-entries", updated);
   }
 
   function deleteEntry(id) {
     const updated = entries.filter(e => e.id !== id);
-    setEntries(updated); saveLocal("fitness-entries", updated);
+    setEntries(updated); saveToServer("fitness-entries", updated);
   }
 
   function updateEntry(updated) {
     const all = entries.map(e => e.id === updated.id ? updated : e);
-    setEntries(all); saveLocal("fitness-entries", all);
+    setEntries(all); saveToServer("fitness-entries", all);
   }
 
   const TABS = [
@@ -727,6 +778,15 @@ export default function App() {
     { id: "activity", label: "🚶 Activity" },
     { id: "history", label: "🕐 History" },
   ];
+
+  if (loading) return (
+    <div style={{ background: C.bg, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "sans-serif" }}>
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: 40, marginBottom: 12 }}>🔥</div>
+        <div style={{ color: C.muted, fontSize: 14 }}>Loading your fitness journal...</div>
+      </div>
+    </div>
+  );
 
   return (
     <div style={{ background: C.bg, minHeight: "100vh", fontFamily: "sans-serif", color: "#f0e0e0" }}>
