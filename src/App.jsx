@@ -17,36 +17,40 @@ const PLAN = [
       { id: "e2", name: "Romanian Deadlift", sets: "3 sets · 10–12 reps · 60s rest", tip: "Hinge at hips. Feel the stretch down your legs. Flat back.", video: "https://www.youtube.com/results?search_query=romanian+deadlift+women+tutorial" },
       { id: "e3", name: "Donkey Kick + Fire Hydrant", sets: "3 sets · 15 reps/side · 45s rest", tip: "Back-to-back no rest. Burns glute medius for that round shape.", video: "https://www.youtube.com/results?search_query=donkey+kick+fire+hydrant+glutes+tutorial" },
       { id: "e4", name: "Plank to Knee Tap", sets: "3 sets · 20 reps · 45s rest", tip: "From plank, tap opposite knee. Hold form.", video: "https://www.youtube.com/results?search_query=plank+knee+tap+core+exercise+tutorial" },
+      { id: "e5", name: "Dead Bug", sets: "3 sets · 10 reps/side · 45s rest", tip: "Lie on back, arms up, knees at 90°. Lower opposite arm and leg slowly. Back stays flat.", video: "https://www.youtube.com/results?search_query=dead+bug+exercise+core+tutorial" },
     ],
   },
   {
     id: "d2", day: "Day 2", schedule: "Wednesday",
     title: "Upper Body & Shoulders", emoji: "💪", color: "#7a6fa8",
     exercises: [
-      { id: "e5", name: "Dumbbell Lateral Raise", sets: "4 sets · 15 reps · 45s rest", tip: "Light weight, full range. Arms parallel to floor.", video: "https://www.youtube.com/results?search_query=dumbbell+lateral+raise+form+women+shoulder" },
-      { id: "e6", name: "Seated Shoulder Press", sets: "3 sets · 10–12 reps · 60s rest", tip: "Sit upright. Elbows at 90° at bottom.", video: "https://www.youtube.com/results?search_query=seated+dumbbell+shoulder+press+form+tutorial" },
-      { id: "e7", name: "Bent-Over Dumbbell Row", sets: "3 sets · 12 reps/side · 60s rest", tip: "Pull toward your hip. Squeeze at the top.", video: "https://www.youtube.com/results?search_query=dumbbell+bent+over+row+form+tutorial+women" },
-      { id: "e8", name: "Bicep Curl + Tricep Extension", sets: "3 rounds · 12+12 reps · 60s rest", tip: "Superset back-to-back. Curls: elbows pinned to sides.", video: "https://www.youtube.com/results?search_query=bicep+curl+tricep+extension+superset+women+dumbbell" },
+      { id: "e6", name: "Dumbbell Lateral Raise", sets: "4 sets · 15 reps · 45s rest", tip: "Light weight, full range. Arms parallel to floor.", video: "https://www.youtube.com/results?search_query=dumbbell+lateral+raise+form+women+shoulder" },
+      { id: "e7", name: "Seated Shoulder Press", sets: "3 sets · 10–12 reps · 60s rest", tip: "Sit upright. Elbows at 90° at bottom.", video: "https://www.youtube.com/results?search_query=seated+dumbbell+shoulder+press+form+tutorial" },
+      { id: "e8", name: "Bent-Over Dumbbell Row", sets: "3 sets · 12 reps/side · 60s rest", tip: "Pull toward your hip. Squeeze at the top.", video: "https://www.youtube.com/results?search_query=dumbbell+bent+over+row+form+tutorial+women" },
+      { id: "e9", name: "Bicep Curl + Tricep Extension", sets: "3 rounds · 12+12 reps · 60s rest", tip: "Superset back-to-back. Curls: elbows pinned to sides.", video: "https://www.youtube.com/results?search_query=bicep+curl+tricep+extension+superset+women+dumbbell" },
+      { id: "e10", name: "Russian Twist", sets: "3 sets · 20 reps · 45s rest", tip: "Sit at 45°, feet raised, rotate side to side. Hold a weight for more challenge.", video: "https://www.youtube.com/results?search_query=russian+twist+obliques+tutorial+women" },
     ],
   },
   {
     id: "d3", day: "Day 3", schedule: "Friday",
     title: "Legs, Quads & Inner Thighs", emoji: "🦵", color: "#4a8b7a",
     exercises: [
-      { id: "e9", name: "Goblet Squat", sets: "4 sets · 12–15 reps · 60s rest", tip: "Hold dumbbell at chest. Toes slightly out. Sit deep.", video: "https://www.youtube.com/results?search_query=goblet+squat+form+tutorial+women" },
-      { id: "e10", name: "Reverse Lunge", sets: "3 sets · 10 reps/leg · 60s rest", tip: "Step backward. Front knee over ankle.", video: "https://www.youtube.com/results?search_query=reverse+lunge+dumbbell+women+tutorial" },
-      { id: "e11", name: "Sumo Squat Pulse", sets: "3 sets · 30 sec · 45s rest", tip: "Wide stance, toes out 45°. Pulse 2 inches.", video: "https://www.youtube.com/results?search_query=sumo+squat+pulse+inner+thigh+women" },
-      { id: "e12", name: "Leg Press", sets: "3 sets · 12 reps · 75s rest", tip: "Feet high and wide to target glutes. Go heavy.", video: "https://www.youtube.com/results?search_query=leg+press+high+foot+placement+glutes+tutorial" },
+      { id: "e11", name: "Goblet Squat", sets: "4 sets · 12–15 reps · 60s rest", tip: "Hold dumbbell at chest. Toes slightly out. Sit deep.", video: "https://www.youtube.com/results?search_query=goblet+squat+form+tutorial+women" },
+      { id: "e12", name: "Reverse Lunge", sets: "3 sets · 10 reps/leg · 60s rest", tip: "Step backward. Front knee over ankle.", video: "https://www.youtube.com/results?search_query=reverse+lunge+dumbbell+women+tutorial" },
+      { id: "e13", name: "Sumo Squat Pulse", sets: "3 sets · 30 sec · 45s rest", tip: "Wide stance, toes out 45°. Pulse 2 inches.", video: "https://www.youtube.com/results?search_query=sumo+squat+pulse+inner+thigh+women" },
+      { id: "e14", name: "Leg Press", sets: "3 sets · 12 reps · 75s rest", tip: "Feet high and wide to target glutes. Go heavy.", video: "https://www.youtube.com/results?search_query=leg+press+high+foot+placement+glutes+tutorial" },
+      { id: "e15", name: "Side Plank Hip Dip", sets: "3 sets · 12 dips/side · 45s rest", tip: "In side plank, dip hip to floor and back up. Best for sides and obliques.", video: "https://www.youtube.com/results?search_query=side+plank+hip+dip+obliques+tutorial" },
     ],
   },
   {
     id: "d4", day: "Day 4", schedule: "Saturday",
     title: "Full Body Burn & Abs", emoji: "🔥", color: "#c87c2a",
     exercises: [
-      { id: "e13", name: "Dumbbell Deadlift", sets: "4 sets · 10 reps · 75s rest", tip: "Full-body compound. Push the floor away as you stand.", video: "https://www.youtube.com/results?search_query=dumbbell+deadlift+women+form+tutorial" },
-      { id: "e14", name: "Push-Up", sets: "3 sets · 8–12 reps · 60s rest", tip: "Start on knees if needed. Chest to ground.", video: "https://www.youtube.com/results?search_query=push+up+form+women+modified+tutorial" },
-      { id: "e15", name: "Glute Bridge Abduction", sets: "3 sets · 15 reps · 45s rest", tip: "Band above knees. Drive knees out in bridge.", video: "https://www.youtube.com/results?search_query=glute+bridge+band+abduction+tutorial+women" },
-      { id: "e16", name: "Bicycle Crunch", sets: "3 sets · 20 reps · 45s rest", tip: "Slow and controlled. Elbow to opposite knee.", video: "https://www.youtube.com/results?search_query=bicycle+crunch+correct+form+tutorial" },
+      { id: "e16", name: "Dumbbell Deadlift", sets: "4 sets · 10 reps · 75s rest", tip: "Full-body compound. Push the floor away as you stand.", video: "https://www.youtube.com/results?search_query=dumbbell+deadlift+women+form+tutorial" },
+      { id: "e17", name: "Push-Up", sets: "3 sets · 8–12 reps · 60s rest", tip: "Start on knees if needed. Chest to ground.", video: "https://www.youtube.com/results?search_query=push+up+form+women+modified+tutorial" },
+      { id: "e18", name: "Glute Bridge Abduction", sets: "3 sets · 15 reps · 45s rest", tip: "Band above knees. Drive knees out in bridge.", video: "https://www.youtube.com/results?search_query=glute+bridge+band+abduction+tutorial+women" },
+      { id: "e19", name: "Bicycle Crunch", sets: "3 sets · 20 reps · 45s rest", tip: "Slow and controlled. Elbow to opposite knee.", video: "https://www.youtube.com/results?search_query=bicycle+crunch+correct+form+tutorial" },
+      { id: "e20", name: "Dumbbell Woodchop", sets: "3 sets · 12 reps/side · 45s rest", tip: "Hold one dumbbell, rotate diagonally from hip to opposite shoulder.", video: "https://www.youtube.com/results?search_query=dumbbell+woodchop+obliques+core+tutorial" },
     ],
   },
 ];
@@ -61,39 +65,39 @@ const ACTIVITY_TYPES = [
 
 const MEALS = [
   { day: "Monday", tag: "Workout Day 🍑", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Scrambled Eggs & Smoked Salmon on Sourdough", cal: 380, protein: 34, ingredients: ["3 large eggs", "50g smoked salmon", "1 slice sourdough", "Spinach", "Lemon"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Chicken & Quinoa Power Bowl", cal: 390, protein: 42, ingredients: ["150g grilled chicken", "70g quinoa", "Cherry tomatoes", "Cucumber", "Mixed leaves"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Baked Salmon with Broccoli & Sweet Potato", cal: 490, protein: 38, ingredients: ["180g salmon", "1 sweet potato", "Tenderstem broccoli", "Garlic", "Lemon"] },
+    { type: "Meal 1", time: "11:00am", name: "Scrambled Eggs & Smoked Salmon", cal: 260, protein: 28, ingredients: ["2 large eggs", "40g smoked salmon", "Handful spinach", "Black pepper", "Lemon"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Chicken & Cucumber Salad", cal: 220, protein: 30, ingredients: ["120g grilled chicken", "Cucumber", "Mixed leaves", "Cherry tomatoes", "Lemon & olive oil"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Baked Salmon with Steamed Broccoli", cal: 320, protein: 36, ingredients: ["150g salmon fillet", "Large head broccoli", "Garlic", "Lemon", "Olive oil"] },
   ]},
   { day: "Tuesday", tag: "Rest Day 🌸", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Greek Yoghurt Bowl with Berries & Granola", cal: 320, protein: 24, ingredients: ["200g Greek yoghurt 0%", "Handful berries", "1 tbsp honey", "30g granola"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Leftover Chicken & Quinoa Bowl", cal: 430, protein: 40, ingredients: ["150g chicken (leftover)", "70g quinoa (leftover)", "½ avocado", "Mixed leaves"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Chicken Stir Fry with Brown Rice", cal: 400, protein: 36, ingredients: ["150g chicken breast", "70g brown rice", "Pak choi", "Red pepper", "Soy sauce"] },
+    { type: "Meal 1", time: "11:00am", name: "Greek Yoghurt with Berries", cal: 180, protein: 18, ingredients: ["150g Greek yoghurt 0%", "Handful mixed berries", "1 tsp honey"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Tuna Salad Bowl", cal: 220, protein: 28, ingredients: ["1 tin tuna in spring water", "Mixed leaves", "Cherry tomatoes", "Cucumber", "Lemon dressing"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Sea Bass with Asparagus", cal: 280, protein: 32, ingredients: ["150g sea bass fillet", "Asparagus", "Lemon", "Capers", "Olive oil"] },
   ]},
   { day: "Wednesday", tag: "Workout Day 💪", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Protein Oats with Banana & Peanut Butter", cal: 420, protein: 30, ingredients: ["60g rolled oats", "1 scoop protein powder", "200ml oat milk", "1 banana"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Tuna & Avocado Wrap", cal: 380, protein: 34, ingredients: ["1 wholemeal wrap", "1 tin tuna", "½ avocado", "Mixed leaves", "Lemon juice"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Chicken Thighs with Roasted Veg & Couscous", cal: 460, protein: 40, ingredients: ["2 chicken thighs", "70g couscous", "Courgette", "Red pepper", "Paprika"] },
+    { type: "Meal 1", time: "11:00am", name: "Egg White Omelette with Veg", cal: 200, protein: 24, ingredients: ["4 egg whites", "1 whole egg", "Mushrooms", "Spinach", "Red pepper"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Prawn & Avocado Salad", cal: 240, protein: 26, ingredients: ["120g cooked prawns", "½ avocado", "Mixed leaves", "Cucumber", "Lime dressing"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Chicken Thigh with Roasted Veg", cal: 280, protein: 34, ingredients: ["1 skinless chicken thigh", "Courgette", "Red pepper", "Red onion", "Paprika & herbs"] },
   ]},
   { day: "Thursday", tag: "Rest Day 🌸", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Smoked Salmon & Egg Muffins", cal: 260, protein: 26, ingredients: ["2 egg muffins (batch baked)", "3 eggs + 50g salmon + spinach per batch"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Lentil & Roasted Veg Soup", cal: 340, protein: 20, ingredients: ["Red lentils", "Carrots", "Celery", "Onion", "Veg stock", "Cumin"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Sea Bass with Asparagus & New Potatoes", cal: 420, protein: 36, ingredients: ["2 sea bass fillets", "180g new potatoes", "Asparagus", "Lemon", "Capers"] },
+    { type: "Meal 1", time: "11:00am", name: "Smoked Salmon & Egg Muffins", cal: 180, protein: 22, ingredients: ["2 egg muffins (batch baked)", "Eggs + smoked salmon + spinach"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Miso Soup with Tofu & Edamame", cal: 180, protein: 18, ingredients: ["Miso paste", "Silken tofu", "Edamame", "Spring onion", "Seaweed"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Grilled Cod with Green Beans", cal: 240, protein: 34, ingredients: ["180g cod fillet", "Green beans", "Garlic", "Lemon", "Olive oil"] },
   ]},
   { day: "Friday", tag: "Workout Day 🦵", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Scrambled Eggs & Smoked Salmon on Sourdough", cal: 380, protein: 34, ingredients: ["3 large eggs", "50g smoked salmon", "1 slice sourdough", "Spinach"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Prawn & Mango Salad", cal: 280, protein: 30, ingredients: ["150g king prawns", "½ mango", "Mixed leaves", "Cucumber", "Lime dressing"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Chicken Fajita Bowl", cal: 460, protein: 40, ingredients: ["150g chicken breast", "Peppers & red onion", "70g brown rice", "Salsa", "Greek yoghurt"] },
+    { type: "Meal 1", time: "11:00am", name: "Cottage Cheese & Cucumber", cal: 160, protein: 22, ingredients: ["200g cottage cheese", "Cucumber slices", "Cherry tomatoes", "Black pepper", "Fresh herbs"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Chicken & Mango Lettuce Wraps", cal: 220, protein: 28, ingredients: ["120g grilled chicken", "½ mango diced", "Butter lettuce leaves", "Red chilli", "Lime juice"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Prawn Stir Fry with Pak Choi", cal: 240, protein: 28, ingredients: ["150g king prawns", "Pak choi", "Mushrooms", "Soy sauce", "Ginger", "Sesame oil"] },
   ]},
   { day: "Saturday", tag: "Workout Day 🔥", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Smashed Avocado & Poached Eggs", cal: 460, protein: 20, ingredients: ["2 poached eggs", "1 avocado", "2 slices sourdough", "Cherry tomatoes", "Lemon"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Grilled Chicken Caesar Salad", cal: 380, protein: 40, ingredients: ["150g grilled chicken", "Romaine lettuce", "Parmesan", "Croutons", "Greek yoghurt dressing"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Baked Cod with Salsa Verde & Roasted Potatoes", cal: 420, protein: 38, ingredients: ["200g cod fillet", "180g baby potatoes", "Green beans", "Salsa verde"] },
+    { type: "Meal 1", time: "11:00am", name: "Poached Eggs & Smashed Avocado", cal: 280, protein: 16, ingredients: ["2 poached eggs", "½ avocado", "1 slice sourdough", "Chilli flakes", "Lemon"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Grilled Chicken Caesar (no croutons)", cal: 220, protein: 32, ingredients: ["130g grilled chicken", "Romaine lettuce", "Small amount parmesan", "Greek yoghurt dressing"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Salmon Sashimi Style with Edamame", cal: 280, protein: 34, ingredients: ["160g salmon", "Edamame", "Cucumber", "Soy sauce", "Pickled ginger", "Sesame seeds"] },
   ]},
   { day: "Sunday", tag: "Rest & Prep 🥘", meals: [
-    { type: "Meal 1", time: "11:00am", name: "Full Protein Omelette", cal: 360, protein: 32, ingredients: ["3 eggs", "50g smoked salmon or chicken", "Mushrooms", "Spinach", "Red pepper"] },
-    { type: "Meal 2", time: "2:00–3:00pm", name: "Homemade Chicken & Veg Soup", cal: 360, protein: 36, ingredients: ["2 chicken breasts", "Carrots", "Celery", "Onion", "Chicken stock", "Parsley"] },
-    { type: "Meal 3", time: "6:00–7:00pm", name: "Teriyaki Salmon with Jasmine Rice & Edamame", cal: 520, protein: 40, ingredients: ["180g salmon", "70g jasmine rice", "Edamame", "Broccoli", "Teriyaki sauce"] },
+    { type: "Meal 1", time: "11:00am", name: "Protein Omelette", cal: 240, protein: 28, ingredients: ["3 eggs", "50g smoked salmon", "Mushrooms", "Spinach", "Fresh herbs"] },
+    { type: "Meal 2", time: "2:00–3:00pm", name: "Homemade Chicken Broth & Veg", cal: 200, protein: 24, ingredients: ["120g chicken breast", "Carrots", "Celery", "Onion", "Chicken stock", "Parsley"] },
+    { type: "Meal 3", time: "6:00–7:00pm", name: "Teriyaki Salmon with Edamame", cal: 300, protein: 34, ingredients: ["160g salmon", "Edamame", "Broccoli", "Low-sugar teriyaki sauce", "Sesame seeds"] },
   ]},
 ];
 
@@ -104,7 +108,6 @@ const DRAFT_KEY = "workout-draft";
 const MEAL_LOG_KEY = "meal-log";
 const emptyCardio = () => ({ type: "Treadmill", time: "", distance: "", incline: "", speed: "" });
 
-// ── API HELPERS ───────────────────────────────────────────────────────
 async function loadFromServer(key, fallback) {
   try {
     const res = await fetch(`${API}/data`);
@@ -130,7 +133,6 @@ async function saveToServer(key, val) {
   } catch {}
 }
 
-// ── UI PRIMITIVES ─────────────────────────────────────────────────────
 function TabBar({ tabs, active, onSelect }) {
   return (
     <div style={{ display: "flex", background: C.dark, borderBottom: `1px solid ${C.border}`, overflowX: "auto" }}>
@@ -207,7 +209,6 @@ function CardioSection({ cardio, onChange }) {
   );
 }
 
-// ── PLAN & LOG ────────────────────────────────────────────────────────
 function PlanWorkoutTab({ onSave }) {
   const [openDay, setOpenDay] = useState(null);
   const [checked, setChecked] = useState({});
@@ -365,7 +366,6 @@ function PlanWorkoutTab({ onSave }) {
                         </div>
                       </div>
                       <a href={ex.video} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: C.card, color: C.blush, borderRadius: 100, padding: "6px 14px", fontSize: 12, fontWeight: 600, textDecoration: "none", border: `1px solid ${C.border}`, marginBottom: isDrafting ? 14 : 0 }}>▶ Watch Tutorial</a>
-
                       {isDrafting && exSets && (
                         <div style={{ marginTop: 12 }}>
                           <div style={{ fontSize: 10, color: C.muted, marginBottom: 10, letterSpacing: 1, textTransform: "uppercase" }}>Log Your Sets</div>
@@ -391,7 +391,6 @@ function PlanWorkoutTab({ onSave }) {
                     </div>
                   );
                 })}
-
                 {isDrafting ? (
                   <div style={{ marginTop: 16 }}>
                     <CardioSection cardio={cardio} onChange={updCardio} />
@@ -423,7 +422,6 @@ function PlanWorkoutTab({ onSave }) {
   );
 }
 
-// ── MEALS ─────────────────────────────────────────────────────────────
 function MealsTab() {
   const dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
   const defaultIdx = Math.max(0, dayNames.indexOf(todayDayName()));
@@ -466,9 +464,9 @@ function MealsTab() {
 
       <div style={{ background: C.greenDark, borderRadius: 14, padding: 14, marginBottom: 14, border: `1px solid ${C.greenBorder}` }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: C.green, marginBottom: 4 }}>🥬 Daily Smoothie — Every Day</div>
-        <div style={{ fontSize: 11, color: "#4a7a5a", lineHeight: 1.6 }}>½ cup chia/flax · 1.5L kale · ½L forest fruits · tropical fruit · water. Sip 11am–7pm.</div>
-        <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
-          {["~580 kcal","23g protein","30g+ fibre","Omega-3s ✓"].map(s => (
+        <div style={{ fontSize: 11, color: "#4a7a5a", lineHeight: 1.6, marginBottom: 8 }}>½ cup chia/flax · 1.5L kale · ½L forest fruits · tropical fruit · 1.5 scoops Leanfit vanilla protein · water. Sip 11am–7pm.</div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {["~890 kcal","57g protein","30g+ fibre","Omega-3s ✓","Leanfit protein ✓"].map(s => (
             <span key={s} style={{ background: "rgba(122,223,138,0.1)", borderRadius: 8, padding: "4px 10px", fontSize: 11, color: C.green, border: `1px solid ${C.greenBorder}` }}>{s}</span>
           ))}
         </div>
@@ -531,10 +529,11 @@ function MealsTab() {
       })}
 
       <div style={{ background: "#1e0f13", borderRadius: 14, padding: 14, border: "1px solid #3a1f22" }}>
-        <div style={{ fontSize: 11, color: C.rose, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Daily Totals (meals + smoothie)</div>
+        <div style={{ fontSize: 11, color: C.rose, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Daily Totals</div>
         {[
-          { label: "Calories", val: `${dayData.meals.reduce((a,m) => a+m.cal, 580)} kcal`, color: C.rose },
-          { label: "Protein", val: `${dayData.meals.reduce((a,m) => a+m.protein, 23)}g`, color: "#7a6fa8" },
+          { label: "Smoothie", val: "~890 kcal · 57g protein", color: C.green },
+          { label: "Meals", val: `${dayData.meals.reduce((a,m) => a+m.cal, 0)} kcal · ${dayData.meals.reduce((a,m) => a+m.protein, 0)}g protein`, color: C.blush },
+          { label: "Total", val: `${dayData.meals.reduce((a,m) => a+m.cal, 890)} kcal · ${dayData.meals.reduce((a,m) => a+m.protein, 57)}g protein`, color: C.rose },
         ].map(s => (
           <div key={s.label} style={{ display: "flex", justifyContent: "space-between", padding: "6px 0", borderBottom: `1px solid ${C.border}` }}>
             <span style={{ fontSize: 13, color: C.muted }}>{s.label}</span>
@@ -560,7 +559,6 @@ function MealsTab() {
   );
 }
 
-// ── ACTIVITY ──────────────────────────────────────────────────────────
 function LogActivity({ onSave }) {
   const [type, setType] = useState("Walking");
   const [duration, setDuration] = useState("");
@@ -616,7 +614,6 @@ function LogActivity({ onSave }) {
   );
 }
 
-// ── HISTORY ───────────────────────────────────────────────────────────
 function History({ entries, onDelete, onUpdate }) {
   const [editingEntry, setEditingEntry] = useState(null);
   const [editDraft, setEditDraft] = useState({});
@@ -744,7 +741,6 @@ function History({ entries, onDelete, onUpdate }) {
   );
 }
 
-// ── ROOT ──────────────────────────────────────────────────────────────
 export default function App() {
   const [tab, setTab] = useState("plan");
   const [entries, setEntries] = useState([]);
