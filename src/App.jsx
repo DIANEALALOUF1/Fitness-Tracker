@@ -247,8 +247,9 @@ function PlanWorkoutTab({ onSave }) {
   const [draft, setDraft] = useState({});
   const [cardio, setCardio] = useState(emptyCardio());
   const [notes, setNotes] = useState("");
-  const [saved, setSaved] = useState(false);
-  const [loading, setLoading] = useState(true);
+const [date, setDate] = useState(today());
+const [saved, setSaved] = useState(false);
+const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([loadFromServer("plan-checked", {}), loadFromServer(DRAFT_KEY, null)]).then(([ch, dr]) => {
@@ -278,7 +279,7 @@ function PlanWorkoutTab({ onSave }) {
 
   function handleSave() {
     const day = PLAN.find(d => d.id === loggingDay);
-    onSave({ id: Date.now(), type: "workout", date: today(), day: day.title, emoji: day.emoji, color: day.color, sets: draft, cardio, notes });
+    onSave({ id: Date.now(), type: "workout", date: date, day: day.title, emoji: day.emoji, color: day.color, sets: draft, cardio, notes });
     saveToServer(DRAFT_KEY, null); setLoggingDay(null); setDraft({}); setCardio(emptyCardio()); setNotes(""); setSaved(true);
   }
 
@@ -391,7 +392,11 @@ function PlanWorkoutTab({ onSave }) {
                       <div style={{ fontSize: 11, color: C.muted, marginBottom: 8, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase" }}>Notes</div>
                       <textarea value={notes} onChange={e => updNotes(e.target.value)} placeholder="How did it feel? Any PRs? 💪" style={{ width: "100%", background: C.rosePale, border: `1.5px solid ${C.border}`, borderRadius: 10, color: C.text, padding: 12, fontSize: 13, fontFamily: "inherit", outline: "none", minHeight: 60, resize: "vertical", boxSizing: "border-box" }} />
                     </Card>
-                    <Btn onClick={handleSave} style={{ width: "100%", padding: 14, borderRadius: 14, fontSize: 15 }}>💾 Save Workout</Btn>
+                    <div style={{ marginBottom: 12 }}>
+  <div style={{ fontSize: 10, color: C.muted, marginBottom: 5, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase" }}>Workout Date</div>
+  <input type="date" value={date} onChange={e => setDate(e.target.value)} style={{ width: "100%", background: C.rosePale, border: `1.5px solid ${C.border}`, borderRadius: 10, color: C.text, padding: "10px 12px", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+</div>
+<Btn onClick={handleSave} style={{ width: "100%", padding: 14, borderRadius: 14, fontSize: 15 }}>💾 Save Workout</Btn>
                   </div>
                 ) : (
                   <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
