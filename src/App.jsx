@@ -87,7 +87,8 @@ const PLAN = [
   },
 ];
 
-const CARDIO_OPTIONS = ["Swim", "Treadmill", "Stair Master", "Elliptical", "Walking"];
+const CARDIO_OPTIONS = ["Swim", "Treadmill", "Stair Master", "Elliptical", "Walking", "Bike"];
+
 const ACTIVITY_TYPES = [
   { label: "Walking", emoji: "🚶‍♀️" }, { label: "Running", emoji: "🏃‍♀️" },
   { label: "Swimming", emoji: "🏊‍♀️" }, { label: "Cycling", emoji: "🚴‍♀️" },
