@@ -85,6 +85,26 @@ const PLAN = [
       { id: "e27", name: "Dead Bug", sets: "3 sets · 10 reps/side · 45s rest", tip: "Lie on back, arms up, knees at 90°. Lower opposite arm and leg slowly. Back stays flat.", video: "https://www.youtube.com/results?search_query=dead+bug+exercise+core+tutorial" },
     ],
   },
+
+  {
+    id: "d6", day: "Day 5b", schedule: "Any Day",
+    title: "Full Body Home — No Equipment", emoji: "🧘‍♀️", color: "#b868a8",
+    location: "🏠 Home · No Equipment",
+    exercises: [
+      { id: "e28", name: "Bodyweight Squat", sets: "3 sets · 20 reps · 45s rest", tip: "Feet shoulder-width apart, toes slightly out. Sit back and down. Drive through heels to stand.", video: "https://www.youtube.com/results?search_query=bodyweight+squat+form+women+tutorial" },
+      { id: "e29", name: "Reverse Lunge", sets: "3 sets · 12 reps/leg · 45s rest", tip: "Step back, lower back knee toward floor. Front knee stays over ankle. Alternate legs.", video: "https://www.youtube.com/results?search_query=reverse+lunge+bodyweight+women+tutorial" },
+      { id: "e30", name: "Glute Bridge", sets: "3 sets · 20 reps · 45s rest", tip: "Lie on back, feet flat. Drive hips up, squeeze glutes hard at top. Hold 1 second.", video: "https://www.youtube.com/results?search_query=glute+bridge+bodyweight+tutorial+women" },
+      { id: "e31", name: "Push-Up", sets: "3 sets · 10 reps · 60s rest", tip: "On knees or toes. Chest to ground. Elbows at 45°. Full range of motion.", video: "https://www.youtube.com/results?search_query=push+up+form+women+modified+tutorial" },
+      { id: "e32", name: "Mountain Climber", sets: "3 sets · 30 seconds · 45s rest", tip: "Plank position, drive knees to chest alternately. Keep hips level. Burns calories fast!", video: "https://www.youtube.com/results?search_query=mountain+climber+exercise+tutorial+women" },
+      { id: "e33", name: "Side Plank Hip Dip", sets: "3 sets · 12 dips/side · 45s rest", tip: "In side plank, dip hip to floor and back up. Targets obliques and love handles.", video: "https://www.youtube.com/results?search_query=side+plank+hip+dip+obliques+tutorial" },
+      { id: "e34", name: "Dead Bug", sets: "3 sets · 10 reps/side · 45s rest", tip: "Lie on back, arms up, knees at 90°. Lower opposite arm and leg slowly. Back stays flat.", video: "https://www.youtube.com/results?search_query=dead+bug+exercise+core+tutorial" },
+    ],
+  },
+  
+
+
+  
+
 ];
 
 const CARDIO_OPTIONS = ["Swim", "Treadmill", "Stair Master", "Elliptical", "Walking", "Bike"];
